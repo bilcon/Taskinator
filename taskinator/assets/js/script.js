@@ -226,9 +226,9 @@ var saveTasks = function() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
-
 var loadTasks = function() {
   var savedTasks = localStorage.getItem("tasks");
+  // if there are no tasks, set tasks to an empty array and return out of the function
   if (!savedTasks) {
     return false;
   }
@@ -240,13 +240,10 @@ var loadTasks = function() {
 
   // loop through savedTasks array
   for (var i = 0; i < savedTasks.length; i++) {
-  // pass each task object into the `createTaskEl()` function
-  createTaskEl(savedTasks[i]);
-  
+    // pass each task object into the `createTaskEl()` function
+    createTaskEl(savedTasks[i]);
   }
-
 };
-
 
 // Save tasks to an array. We'll organize all the elements that correspond to a task into an object, and save those objects into an array.
 
